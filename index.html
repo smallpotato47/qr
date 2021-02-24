@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>安心出行</title>
 <head>
-	<link rel="icon" href="image/favicon.ico" />
+	<link rel="icon" href="./image/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="theme-color" content="#50ae8a" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -90,54 +90,74 @@
 		
 	</style>
 </head>
+<script src="jquery.min.js"></script>
 <script>
-	function preload(){
-		fetch('https://extreme-ip-lookup.com/json/')
-		.then( res => res.json())
-		.then(response => {
-		console.log("countryCode: ", response.countryCode);
-			if(response.countryCode != "HK"){
-				document.getElementById("blcokMe").style.display = "block";				
-			}else{
-				document.getElementById("noHK").style.display = "block";
-				window.setTimeout(function(){
-
-					// Move to a new location or you can do something else
-					//window.location.href = "https://google.com";
-					document.getElementById("noHK").innerHTML = "我愛習大大";
-
-				}, 3000);				
-			}
-		})
-		.catch((data, status) => {
-		console.log('Request failed');
-		})
-		
- 
-		var d = new Date();		
-		var dyesterday = new Date();
-		dyesterday.setDate(dyesterday.getDate() -1 );
-		var weekday = new Array(7);
-		  weekday[0] = "星期日";
-		  weekday[1] = "星期一";
-		  weekday[2] = "星期二";
-		  weekday[3] = "星期三";
-		  weekday[4] = "星期四";
-		  weekday[5] = "星期五";
-		  weekday[6] = "星期六";
-		  var n = weekday[d.getDay()];
-		  
-		  var timeRecord = d.getFullYear() + "-" + ((d.getMonth() +1 )<10?'0':'') + (d.getMonth() +1 )+"-"+ (d.getDate()<10?'0':'') + d.getDate() + ", " + n;
-		  var yesterdayRecord = dyesterday.getFullYear() + "-" + ((dyesterday.getMonth() +1 )<10?'0':'') + (dyesterday.getMonth() +1 )+"-"+ (dyesterday.getDate()<10?'0':'') + dyesterday.getDate();
-		  
-		  //var yesterday = oldDay.getFullYear() + "-" + (oldDay.getMonth() +1 )+"-"+ oldDay.getDate();
-		document.getElementById("todayDay").innerHTML = timeRecord;
-		document.getElementById("yesterdayDay").innerHTML = yesterdayRecord;
-	}
+function preload(){	 
+	var d = new Date();		
+	var dyesterday = new Date();
+	dyesterday.setDate(dyesterday.getDate() -1 );
+	var weekday = new Array(7);
+	  weekday[0] = "星期日";
+	  weekday[1] = "星期一";
+	  weekday[2] = "星期二";
+	  weekday[3] = "星期三";
+	  weekday[4] = "星期四";
+	  weekday[5] = "星期五";
+	  weekday[6] = "星期六";
+	  var n = weekday[d.getDay()];
+	  
+	  var timeRecord = d.getFullYear() + "-" + ((d.getMonth() +1 )<10?'0':'') + (d.getMonth() +1 )+"-"+ (d.getDate()<10?'0':'') + d.getDate() + ", " + n;
+	  var yesterdayRecord = dyesterday.getFullYear() + "-" + ((dyesterday.getMonth() +1 )<10?'0':'') + (dyesterday.getMonth() +1 )+"-"+ (dyesterday.getDate()<10?'0':'') + dyesterday.getDate();
+	  
+	  //var yesterday = oldDay.getFullYear() + "-" + (oldDay.getMonth() +1 )+"-"+ oldDay.getDate();
+	document.getElementById("todayDay").innerHTML = timeRecord;
+	document.getElementById("yesterdayDay").innerHTML = yesterdayRecord;
+}
 </script>
 
 <body onload="preload();">
-	<h3 id="noHK">Do not support HK area</h3>
+<script>
+	/*fetch('https://extreme-ip-lookup.com/json/')	
+	.then( res => res.json())
+	.then(response => {
+	console.log("countryCode: " + response.countryCode);
+		if(response.countryCode != "HK"){
+			document.getElementById("blcokMe").style.display = "block";	
+		}else{
+			document.getElementById("noHK").style.display = "block";
+			window.setTimeout(function(){
+
+				// Move to a new location or you can do something else
+				//window.location.href = "https://google.com";
+				document.getElementById("noHK").innerHTML = "我愛習大大";
+
+			}, 3000);				
+		}
+	})
+	.catch((data, status) => {
+	console.log('Request failed');
+	})*/
+	$.get("https://ipinfo.io/json", function (response) {
+    //$("#country").html("country: " + response.country);
+    //$("#details").html(JSON.stringify(response));
+	if(response.country != "HK"){
+			document.getElementById("blcokMe").style.display = "block";	
+		}else{
+			document.getElementById("noHK").style.display = "block";
+			window.setTimeout(function(){
+
+				// Move to a new location or you can do something else
+				//window.location.href = "https://google.com";
+				document.getElementById("noHK").innerHTML = "我愛習大大";
+
+			}, 3000);				
+		}
+	
+}, "jsonp");
+</script>
+<div id="country"></div>
+<div id="details"></div>
+<h3 id="noHK">Do not support HK area</h3>
 <div id="blcokMe">
 	<a href="scan.html">
 	<div class="imgbox">
