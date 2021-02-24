@@ -117,11 +117,11 @@ function preload(){
 
 <body onload="preload();">
 <script>
-	//https://extreme-ip-lookup.com/json
-	$.get("https://ipinfo.io/json", function (response) {
+	//http://ip-api.com/json
+	$.get("https://extreme-ip-lookup.com/json", function (response) {
     //$("#country").html("country: " + response.country);
     //$("#details").html(JSON.stringify(response));
-	if(response.country != "HK"){
+	if(response.countryCode != "HK" || response.countryCode != "CN"){
 			document.getElementById("blcokMe").style.display = "block";	
 		}else{
 			document.getElementById("noHK").style.display = "block";
