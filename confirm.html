@@ -252,7 +252,8 @@ function changeTime(time){
 			localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
 			
 			
-			document.getElementById("hourNumber").innerHTML = time +"小時後自動離開" ;	
+			document.getElementById("hourNumber").innerHTML = time +"小時後自動離開" ;
+			document.getElementById('outerPop').style.display = 'none'
 			
 			var thisMyTime = myDisplay.checkInTime;		
 			document.getElementById("entering").innerHTML = thisMyTime.substring(5,thisMyTime.length);
