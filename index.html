@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>安心出行</title>
+<head>
+	<link rel="icon" href="image/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#50ae8a" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="image/icon-192x192.png" />
+	<link rel="manifest" href="manifest.json" />
+	
+	<style>
+		@font-face {
+			font-family: myFirstFont;
+			src: url(font/Rubik-VariableFont_wght.ttf);
+		}	
+		html, body {
+			margin: 0; 
+			height: 100%; 
+			overflow: hidden;
+			position: fixed;			
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			background-color: #50ae8a;
+		}
+		#blcokMe{
+			display:none;
+			z-index:777;	
+		}
+		.imgbox {
+			z-index:1;
+			height: 100%;
+		}
+		.center-fit {
+			width: 100%;
+			max-height: 100vh;
+			margin: auto;
+		}
+		.text-z-index{
+			z-index:99;				
+		}		
+		#todayDay{
+			font-size:18px;	
+			color:white;
+			position: absolute;
+			top:12%;
+			left:8.5%;			
+			-webkit-font-smoothing: antialiased;
+			text-shadow: rgb(0 0 0 / 80%) 0px 1px 2px;
+			font-family: myFirstFont;			
+		}
+		#yesterdayDay{
+			font-size:15px;	
+			color:#0c0e0f;
+			position: absolute;
+			top:76.3%;
+			left:29%;
+			background-color:#bde1d7;
+			font-family: myFirstFont;
+		}
+		#noHK{
+			display:none;
+			z-index:1;
+		}
+		
+	</style>
+</head>
+<script>
+	function preload(){
+		fetch('https://extreme-ip-lookup.com/json/')
+		.then( res => res.json())
+		.then(response => {
+		console.log("countryCode: ", response.countryCode);
+			if(response.countryCode != "HK"){
+				document.getElementById("blcokMe").style.display = "block";				
+			}else{
+				document.getElementById("noHK").style.display = "block";
+				window.setTimeout(function(){
+
+					// Move to a new location or you can do something else
+					window.location.href = "https://google.com";
+
+				}, 3000);				
+			}
+		})
+		.catch((data, status) => {
+		console.log('Request failed');
+		})
+		
+ 
+		var d = new Date();		
+		var dyesterday = new Date();
+		dyesterday.setDate(dyesterday.getDate() -1 );
+		var weekday = new Array(7);
+		  weekday[0] = "星期日";
+		  weekday[1] = "星期一";
+		  weekday[2] = "星期二";
+		  weekday[3] = "星期三";
+		  weekday[4] = "星期四";
+		  weekday[5] = "星期五";
+		  weekday[6] = "星期六";
+		  var n = weekday[d.getDay()];
+		  
+		  var timeRecord = d.getFullYear() + "-" + ((d.getMonth() +1 )<10?'0':'') + (d.getMonth() +1 )+"-"+ (d.getDate()<10?'0':'') + d.getDate() + ", " + n;
+		  var yesterdayRecord = dyesterday.getFullYear() + "-" + ((dyesterday.getMonth() +1 )<10?'0':'') + (dyesterday.getMonth() +1 )+"-"+ (dyesterday.getDate()<10?'0':'') + dyesterday.getDate();
+		  
+		  //var yesterday = oldDay.getFullYear() + "-" + (oldDay.getMonth() +1 )+"-"+ oldDay.getDate();
+		document.getElementById("todayDay").innerHTML = timeRecord;
+		document.getElementById("yesterdayDay").innerHTML = yesterdayRecord;
+	}
+</script>
+
+<body onload="preload();">
+<h3 id="noHK">Do not support HK area</h3>
+<div id="blcokMe">
+	<a href="scan.html">
+	<div class="imgbox">
+		<img src="image/welcome2.jpg" alt="welcome" class="center-fit">
+	</div>
+	</a>
+	<div class="text-z-index">
+		<p id="todayDay"></p>
+		<p onclick='window.location.href = "history.html";' id="yesterdayDay"></p>
+	</div>	
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('./sw.js')
+			.then(reg => console.log('SW registered!', reg))
+			.catch(err => console.log('Error!', err));
+		}
+	</script>
+</div>
+</body>
+	
+</html>
