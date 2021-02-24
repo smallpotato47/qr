@@ -173,46 +173,32 @@
 			font-family: myFirstFont;
 			font-weight:600;		
 		}
-		::placeholder {
-			color: #cccccc;
-			opacity: 0.7; /* Firefox */
-			font-weight:400;
-		}
 		
-		#menuInput {
-			display: none;
-			z-index: 2100;
-			position: fixed;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 80vw;
-			background-color: rgb(0,0,0,0.8);
-			padding: 100vh;
-		}
-		
-		#menuInput span {
-			position: absolute;
-			left: 50%;
-			transform: translate(-50%, 0px);
-			background-color: transparent;
-			font-weight: 600;
-		}
-		
-		
-	</style>
+</style>
 </head>
 <script type="text/javascript" src="base64.js"></script>
 
 <script>
-function checkCookie(){
+function checkCookie(){	
+	if(localStorage.hasOwnProperty('myDisplay')){
 	var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));
 	var oldTime = new Date(parseInt(myDisplay.unixTime));
-	if(localStorage.hasOwnProperty('myDisplay')){
 		if(new Date().getTime() - myDisplay.unixTime <=  myDisplay.expires && myDisplay.display){
 			document.getElementById("myPlace").innerHTML = myDisplay.place;
 			document.getElementById("cookieDate").innerHTML = myDisplay.checkInTime;
-			document.getElementById("hourNumber").innerHTML = myDisplay.expires / 3600000 +"小時後自動離開" ;				
+			document.getElementById("hourNumber").innerHTML = myDisplay.expires / 3600000 +"小時後自動離開" ;			
+			var greenTick = document.getElementsByClassName('greenTick');	
+			for (var i = 0 ; i < greenTick.length ; i++){
+				greenTick[i].className = "greenTick";
+			}
+			greenTick[(myDisplay.expires / 3600000)-1].className += " actived";		
+			
+			var myHistory = JSON.parse(localStorage.getItem("myHistory"));
+			var thisMyTime = myDisplay.checkInTime;	
+			var timeRecordOut = myHistory.record[myHistory.record.length - 1].checkOutTime;
+			
+			document.getElementById("entering").innerHTML = "於" + thisMyTime.substring(5,thisMyTime.length) + " 進入場所";
+			document.getElementById("exiting").innerHTML = "於" + timeRecordOut.substring(5,thisMyTime.length)+ "  自動離開";
 		}else{
 			var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));	
 			myDisplay.display = false;	
@@ -251,13 +237,13 @@ function changeTime(time){
 	if (time != "" || time != NULL){
 		if (time > 0 && time <= 24){
 			var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));
-			myDisplay.expires = time * 3600000 //1 hour's ms
+			myDisplay.expires = time * 3600000 //1 hour
 			localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
 			var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));
 			
-			var oldTime = new Date(parseInt(myDisplay.unixTime));
+			var oldTime = new Date(parseInt(myDisplay.unixTime)); //輸入時的時間
 			
-			oldTime.setMinutes(oldTime.getMinutes() + (myDisplay.expires / 60000));
+			oldTime.setMinutes(oldTime.getMinutes() + (myDisplay.expires / 60000)); //change unit to minutes
 			var timeRecordOut = oldTime.getFullYear() + "-" + (oldTime.getMonth()<10?'0':'') + (oldTime.getMonth() +1 )+"-"+ (oldTime.getDate()<10?'0':'') + oldTime.getDate() + " " +(oldTime.getHours()<10?'0':'') + oldTime.getHours() +":"+ (oldTime.getMinutes()<10?'0':'') + oldTime.getMinutes();
 			
 			var myObj = JSON.parse(localStorage.getItem("myHistory"));
@@ -267,7 +253,10 @@ function changeTime(time){
 			
 			
 			document.getElementById("hourNumber").innerHTML = time +"小時後自動離開" ;	
-			document.getElementById('menuInput').style.display = 'none'
+			
+			var thisMyTime = myDisplay.checkInTime;		
+			document.getElementById("entering").innerHTML = thisMyTime.substring(5,thisMyTime.length);
+			document.getElementById("exiting").innerHTML = timeRecordOut.substring(5,thisMyTime.length);
 			
 			location.reload();
 		}else{
@@ -290,18 +279,183 @@ function changeTime(time){
 
 <div class="footerDiv">
 	<div class="subfooter">
-		<div class="changeTick"><img src="image/checkbox.7f6c2da0.svg" class="textdis"></div><div id="hourNumber">4小時後自動離開</div><div class="changestatus" onclick="document.getElementById('menuInput').style.display = 'block';">變更</div>
+		<div class="changeTick"><img src="image/checkbox.7f6c2da0.svg" class="textdis"></div><div id="hourNumber">4小時後自動離開</div><div class="changestatus" onclick="document.getElementById('outerPop').style.display = 'block';">變更</div>
 	</div>
 	<button class="exitclass" onclick="delCookie()">離開</button>
 	<div>當你離開時請緊記按"離開"</div>	
 </div>
 
-<div id="menuInput" >
-	<input type="number" id="enterTime" placeholder="自動離開時間(小時)"> <br>
-	<button onclick="changeTime(document.getElementById('enterTime').value); ">確認更改</button>
-	<span onclick="document.getElementById('menuInput').style.display = 'none';" style="color:white;">取消</span>
+<div id="outerPop">
+	<div class="popOut" tabindex="-1" role="dialog" aria-modal="true">
+		<div class="crossBar">
+			<img onclick="document.getElementById('outerPop').style.display = 'none';" src="image/crossBlack.aafc0aee.svg" class="blackCross"> 
+		</div>
+		<h1 class="exitTitle">設罝自動離開時間</h1>
+		<div id="scroll" class="scrollPage">
+			<ul class="scrollul">
+				<li class="scrollli" onclick="changeGreenTick(1)">+ 1小時<img src="image/greenTick.5e528318.svg" id="tick1" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(2)">+ 2小時<img src="image/greenTick.5e528318.svg" id="tick2" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(3)">+ 3小時<img src="image/greenTick.5e528318.svg" id="tick3" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(4)">+ 4小時<img src="image/greenTick.5e528318.svg" id="tick4" class="greenTick actived"></li>
+				<li class="scrollli" onclick="changeGreenTick(5)">+ 5小時<img src="image/greenTick.5e528318.svg" id="tick5" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(6)">+ 6小時<img src="image/greenTick.5e528318.svg" id="tick6" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(7)">+ 7小時<img src="image/greenTick.5e528318.svg" id="tick7" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(8)">+ 8小時<img src="image/greenTick.5e528318.svg" id="tick8" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(9)">+ 9小時<img src="image/greenTick.5e528318.svg" id="tick9" class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(10)">+ 10小時<img src="image/greenTick.5e528318.svg" id="tick10"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(11)">+ 11小時<img src="image/greenTick.5e528318.svg" id="tick11"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(12)">+ 12小時<img src="image/greenTick.5e528318.svg" id="tick12"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(13)">+ 13小時<img src="image/greenTick.5e528318.svg" id="tick13"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(14)">+ 14小時<img src="image/greenTick.5e528318.svg" id="tick14"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(15)">+ 15小時<img src="image/greenTick.5e528318.svg" id="tick15"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(16)">+ 16小時<img src="image/greenTick.5e528318.svg" id="tick16"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(17)">+ 17小時<img src="image/greenTick.5e528318.svg" id="tick17"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(18)">+ 18小時<img src="image/greenTick.5e528318.svg" id="tick18"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(19)">+ 19小時<img src="image/greenTick.5e528318.svg" id="tick19"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(20)">+ 20小時<img src="image/greenTick.5e528318.svg" id="tick20"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(21)">+ 21小時<img src="image/greenTick.5e528318.svg" id="tick21"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(22)">+ 22小時<img src="image/greenTick.5e528318.svg" id="tick22"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(23)">+ 23小時<img src="image/greenTick.5e528318.svg" id="tick23"  class="greenTick"></li>
+				<li class="scrollli" onclick="changeGreenTick(24)">+ 24小時<img src="image/greenTick.5e528318.svg" id="tick24"  class="greenTick"></li>
+			</ul>
+		</div>
+		<div class="yrTime">
+		<div id="entering"></div>
+		<div id="exiting"></div>
+		</div>
+		<button class="yesButton" onclick="gogogo()">確認</button>
+	</div>
 </div>
 </div>
+
+<script>
+function changeGreenTick(hourNumber){
+	var greenTick = document.getElementsByClassName('greenTick');
+	
+	for (var i = 0 ; i < greenTick.length ; i++){
+		greenTick[i].className = "greenTick";
+	}
+	greenTick[hourNumber-1].className += " actived";
+	localStorage.setItem("hourNumber", hourNumber);
+	
+	var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));
+	
+	var oldTime = new Date(parseInt(myDisplay.unixTime));
+	oldTime.setMinutes(oldTime.getMinutes() + (hourNumber * 60)); //change unit to minutes
+	var timeRecordOut = (oldTime.getMonth()<10?'0':'') + (oldTime.getMonth() +1 )+"-"+ (oldTime.getDate()<10?'0':'') + oldTime.getDate() + " " +(oldTime.getHours()<10?'0':'') + oldTime.getHours() +":"+ (oldTime.getMinutes()<10?'0':'') + oldTime.getMinutes();
+	var thisMyTime = myDisplay.checkInTime;	
+
+	document.getElementById("entering").innerHTML = "於" + thisMyTime.substring(5,thisMyTime.length) + " 進入場所";
+	document.getElementById("exiting").innerHTML = "於" + timeRecordOut + "  自動離開";
+}
+
+function gogogo(){
+	changeTime(localStorage.getItem("hourNumber"));
+}
+
+</script>
+
 </body>
+<style>
+#outerPop{
+	display:none;
+	z-index: 2200;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80vw;
+	background-color: rgb(0,0,0,0.8);
+	padding: 100vh;
+	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
+}
+
+#outerPop *{
+	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
+	 background-color: rgb(255, 255, 255);
+}
+
+.popOut{
+	position: absolute;
+    inset: 50% 40px 40px 50%;
+    border: 0px;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    border-radius: 8px;
+    outline: none;
+    padding: 16px;
+    width: 240px;
+    transform: translate(-50%, -50%);
+    height: 370px;
+}
+.crossBar {
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+.blackCross {
+    height: 20px;
+}
+.exitTitle {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+.scrollPage {
+    overflow: auto;
+    height: 180px;
+    padding: 0px 8px;
+}
+.scrollul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.scrollli {
+	background-color: rgb(255, 255, 255);
+    line-height: 40px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 0px 8px;
+}
+
+.greenTick {
+    height: 32px;
+    position: relative;
+    float: right;
+    top: 4px;
+	display:none;
+}
+.actived{
+	display:block;
+}
+
+.yrTime {
+    font-size: 12px;
+    text-align: center;
+    padding: 16px 0px;
+}
+
+.yesButton {
+    display: block;
+    margin: auto auto 16px;
+    font-size: 24px;
+    padding: 10px 0px;
+    width: 80%;
+    border-radius: 48px;
+    flex-shrink: 0;
+    max-width: 280px;
+    font-weight: 500;
+    background-color: rgb(254, 212, 38) !important;;
+    border: 0px;
+    outline: none;
+	font-size: 16px;
+    padding: 12px 0px;
+    width: 90%;
+}
+
+</style>
 	
 </html>
