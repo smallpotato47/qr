@@ -169,6 +169,9 @@ function delStorage() {
   if(confirm("Do you want to delete all record?")){
   	localStorage.removeItem("myHistory");
 	var noRecord = "沒有記錄";
+	var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));	
+	myDisplay.display = false;
+	localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
 	document.getElementById("norecord").innerHTML = noRecord;
 	document.getElementById("myRecord").innerHTML = "";
   } else {
