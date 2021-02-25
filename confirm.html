@@ -199,6 +199,10 @@ function checkCookie(){
 			
 			document.getElementById("entering").innerHTML = "於" + thisMyTime.substring(5,thisMyTime.length) + " 進入場所";
 			document.getElementById("exiting").innerHTML = "於" + timeRecordOut.substring(5,thisMyTime.length)+ "  自動離開";
+			
+			document.getElementById("enterBoxPlace").innerHTML = myDisplay.place;
+			document.getElementById("enterBoxTime").innerHTML = myDisplay.checkInTime;
+			document.getElementById("exitBoxTime").innerHTML = "於" + timeRecordOut.substring(5,thisMyTime.length)+ "  自動離開";			
 		}else{
 			var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));	
 			myDisplay.display = false;	
@@ -217,20 +221,18 @@ function checkCookie(){
 }
 
 function delCookie(){
-	if(confirm("Do you want to leave now?")){		
-		var myNewTime = JSON.parse(localStorage.getItem("myHistory"));
-		var timeNow = new Date();	
-		var timeRecordOut = timeNow.getFullYear() + "-" + (timeNow.getMonth()<10?'0':'') + (timeNow.getMonth() +1 )+"-"+ (timeNow.getDate()<10?'0':'') + timeNow.getDate() + " " +(timeNow.getHours()<10?'0':'') + timeNow.getHours() +":"+ (timeNow.getMinutes()<10?'0':'') + timeNow.getMinutes();
-		myNewTime.record[myNewTime.record.length-1].checkOutTime = timeRecordOut;	
-		localStorage.setItem("myHistory", JSON.stringify(myNewTime));
-		console.log(timeRecordOut);
-		var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));	
-		myDisplay.display = false;
-		localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
-		window.location.href = "index.html";
-	  } else {
-		return '';
-	  }
+	var myNewTime = JSON.parse(localStorage.getItem("myHistory"));
+	var timeNow = new Date();	
+	var timeRecordOut = timeNow.getFullYear() + "-" + (timeNow.getMonth()<10?'0':'') + (timeNow.getMonth() +1 )+"-"+ (timeNow.getDate()<10?'0':'') + timeNow.getDate() + " " +(timeNow.getHours()<10?'0':'') + timeNow.getHours() +":"+ (timeNow.getMinutes()<10?'0':'') + timeNow.getMinutes();
+	myNewTime.record[myNewTime.record.length-1].checkOutTime = timeRecordOut;	
+	localStorage.setItem("myHistory", JSON.stringify(myNewTime));
+	console.log(timeRecordOut);
+	var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));	
+	myDisplay.display = false;
+	localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
+	document.getElementById('exitBox').style.display = 'none';
+	window.location.href = "index.html";
+	  
 }
 
 function changeTime(time){
@@ -252,8 +254,8 @@ function changeTime(time){
 			localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
 			
 			
-			document.getElementById("hourNumber").innerHTML = time +"小時後自動離開" ;
-			document.getElementById('outerPop').style.display = 'none'
+			document.getElementById("hourNumber").innerHTML = time +"小時後自動離開";
+			document.getElementById('outerPop').style.display = 'none';
 			
 			var thisMyTime = myDisplay.checkInTime;		
 			document.getElementById("entering").innerHTML = thisMyTime.substring(5,thisMyTime.length);
@@ -282,7 +284,7 @@ function changeTime(time){
 	<div class="subfooter">
 		<div class="changeTick"><img src="image/checkbox.7f6c2da0.svg" class="textdis"></div><div id="hourNumber">4小時後自動離開</div><div class="changestatus" onclick="document.getElementById('outerPop').style.display = 'block';">變更</div>
 	</div>
-	<button class="exitclass" onclick="delCookie()">離開</button>
+	<button class="exitclass" onclick="document.getElementById('exitBox').style.display = 'block';">離開</button>
 	<div>當你離開時請緊記按"離開"</div>	
 </div>
 
@@ -327,6 +329,20 @@ function changeTime(time){
 		<button class="yesButton" onclick="gogogo()">確認</button>
 	</div>
 </div>
+
+<div id="exitBox">
+         <div class="exitBoxContainer" tabindex="-1" role="dialog" aria-modal="true">
+         <div class="sc-fFubgz bjNVbG">
+            <img src="image/crossBlack.aafc0aee.svg" class="sc-fodVxV cYLuAZ" onclick="document.getElementById('exitBox').style.display = 'none';" />
+         </div>
+         <div class="XavQL">你已進入場所</div>
+         <div class="guKkvw" id="enterBoxPlace"></div>
+         <div class="kCQmsc" id="enterBoxTime"></div>
+         <div class="cSnsVU">你現在要離開嗎？</div>
+         <div class="fTLfYv" id="exitBoxTime"></div>
+         <button class="bhdLno" onclick="delCookie()">是的，我現在要離開</button> 
+         <button class="kGntgQ" onclick="delCookie()">我現已經離開了</button></div>
+      </div>
 </div>
 
 <script>
@@ -366,7 +382,7 @@ function gogogo(){
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 80vw;
-	background-color: rgb(0,0,0,0.8);
+	background-color: rgb(0,0,0,0.5);
 	padding: 100vh;
 	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
 }
@@ -455,6 +471,107 @@ function gogogo(){
 	font-size: 16px;
     padding: 12px 0px;
     width: 90%;
+}
+#exitBox{
+	display:none;
+	position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.exitBoxContainer{
+	position: absolute;
+	inset: 50% 40px 40px 50%;
+	border: 0px;
+	background: rgb(255, 255, 255);
+	overflow: hidden;
+	border-radius: 8px;
+	outline: none;
+	padding: 16px;
+	width: 240px;
+	transform: translate(-50%, -50%);
+	height: 430px;
+}
+
+#exitBox *{
+	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
+	 background-color: rgb(255, 255, 255);
+}
+
+.bjNVbG {
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+.cYLuAZ {
+    height: 20px;
+}
+.XavQL {
+    text-align: center;
+    font-size: 16px;
+}
+.guKkvw {
+    color: unset;
+    text-shadow: none;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 48px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.kCQmsc {
+    text-align: center;
+    font-size: 14px;
+}
+.cSnsVU {
+    font-size: 20px;
+    text-align: center;
+    margin: 64px 0px;
+    font-weight: bold;
+}
+.fTLfYv {
+    font-size: 12px;
+    text-align: center;
+    padding: 12px 0px;
+}
+.bhdLno {
+    font-size: 16px;
+    padding: 12px 0px;
+    width: 90%;
+    font-weight: unset;
+	display: block;
+    margin: auto auto 16px;
+    padding: 10px 0px;
+    width: 80%;
+    border-radius: 48px;
+    flex-shrink: 0;
+    max-width: 280px;
+    font-weight: 500;
+    background-color: rgb(254, 212, 38) !important;
+    border: 0px;
+    outline: none;
+}
+.kGntgQ {
+    background-color: rgb(18, 177, 136)!important;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0 0 0 / 80%) 0px 1px 2px;
+	font-size: 16px;
+    padding: 12px 0px;
+    width: 90%;
+    font-weight: unset;
+	display: block;
+    margin: auto auto 16px;
+    padding: 10px 0px;
+    width: 80%;
+    border-radius: 48px;
+    flex-shrink: 0;
+    max-width: 280px;
+    font-weight: 500;
+    border: 0px;
+    outline: none;
 }
 
 </style>
