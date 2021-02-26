@@ -59,9 +59,10 @@
 			color:#0c0e0f;
 			position: absolute;
 			top:76.3%;
-			left:29%;
+			left:13%;
 			background-color:#bde1d7;
 			font-family: myFirstFont;
+			font-weight: 600;
 		}
 		#noHK{
 			display:none;
@@ -92,10 +93,7 @@
 </head>
 <script src="jquery.min.js"></script>
 <script>
-function preload(){
-	var w = window.screen.width;
- 	var h = window.screen.height;
-	
+function preload(){	 
 	var d = new Date();		
 	var dyesterday = new Date();
 	dyesterday.setDate(dyesterday.getDate() -1 );
@@ -114,14 +112,29 @@ function preload(){
 	  
 	  //var yesterday = oldDay.getFullYear() + "-" + (oldDay.getMonth() +1 )+"-"+ oldDay.getDate();
 	document.getElementById("todayDay").innerHTML = timeRecord;
-	document.getElementById("yesterdayDay").innerHTML = yesterdayRecord;
+	document.getElementById("yesterdayDay").innerHTML = "最後更新 "+ yesterdayRecord;
+	
+	var x = screen.width;
+	var y = screen.height;
+	var ratio = y/x;
+	console.log(ratio);
+	if (ratio < 2){
+		document.getElementById("myImg").src = "image/welcome33.jpg";
+		
+		document.getElementById("todayDay").style.backgroundColor = "#12b188";
+		document.getElementById("todayDay").style.top = "10%";
+		document.getElementById("todayDay").style.left = "7%";
+		
+		document.getElementById("yesterdayDay").style.top = "76.2%";
+		document.getElementById("yesterdayDay").style.left = "11%";		
+	}
 }
 </script>
 
 <body onload="preload();">
 <script>
-	//http://ip-api.com/json
-	$.get("https://extreme-ip-lookup.com/json", function (response) {
+	//https://ipinfo.io/json
+	$.get("https://extreme-ip-lookup.com/json/", function (response) {
     //$("#country").html("country: " + response.country);
     //$("#details").html(JSON.stringify(response));
 	if(response.countryCode != "HK" && response.countryCode != "CN"){
@@ -141,11 +154,11 @@ function preload(){
 </script>
 <div id="country"></div>
 <div id="details"></div>
-	<h3 id="noHK">Do not support HK area</h3>
+<h3 id="noHK">Do not support HK area</h3>
 <div id="blcokMe">
 	<a href="scan.html">
 	<div class="imgbox">
-		<img src="image/welcome2.jpg" alt="welcome" class="center-fit">
+		<img id = "myImg" src="image/welcome2.jpg" alt="welcome" class="center-fit">
 	</div>
 	</a>
 	<div class="text-z-index">
