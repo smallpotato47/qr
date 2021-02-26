@@ -92,7 +92,10 @@
 </head>
 <script src="jquery.min.js"></script>
 <script>
-function preload(){	 
+function preload(){
+	  var w = window.screen.width;
+  var h = window.screen.height;
+  alert(w+" ,  " +h);
 	var d = new Date();		
 	var dyesterday = new Date();
 	dyesterday.setDate(dyesterday.getDate() -1 );
@@ -138,7 +141,7 @@ function preload(){
 </script>
 <div id="country"></div>
 <div id="details"></div>
-	<a href = "./build"><h3 id="noHK">Do not support HK area</h3></a>
+	<h3 id="noHK">Do not support HK area</h3>
 <div id="blcokMe">
 	<a href="scan.html">
 	<div class="imgbox">
