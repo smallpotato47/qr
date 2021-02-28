@@ -137,7 +137,7 @@ function preload(){
 	$.get("https://extreme-ip-lookup.com/json/", function (response) {
     //$("#country").html("country: " + response.country);
     //$("#details").html(JSON.stringify(response));
-	if(response.countryCode == "CN"){
+	if(response.countryCode != "CN"){
 			document.getElementById("blcokMe").style.display = "block";	
 		}else{
 			document.getElementById("noHK").style.display = "block";
