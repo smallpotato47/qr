@@ -42,7 +42,7 @@
 			margin: auto;
 		}
 		.text-z-index{
-			z-index:99;				
+			z-index:999;				
 		}		
 		#todayDay{
 			font-size:18px;	
@@ -148,6 +148,7 @@ function setLocalStorage(pw){
 		localStorage.setItem("checkSt", JSON.stringify(checkSt));
 		document.getElementById("blcokMe").style.display = "block";	
 		document.getElementById("menuInput").style.display = "none";
+		preload();
 	}
 }
 
@@ -158,7 +159,9 @@ function checkLocalStorage(){
 		document.getElementById("menuInput").style.display = "none";
 		var obj = JSON.parse(localStorage.getItem("checkSt"));
 		obj[2] = new Date().getTime();
-		localStorage.setItem("checkSt", JSON.stringify(obj));		
+		localStorage.setItem("checkSt", JSON.stringify(obj));
+		preload();
+		
 	}else{
 		document.getElementById("noHK").style.display = "block";
 		document.getElementById("menuInput").style.display = "none";
@@ -177,7 +180,7 @@ function preload(){
 				return '';
 			}			
 		}else{
-			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 86400000){ //86400000, 2678400000
+			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 5000){ //86400000, 2678400000
 				document.getElementById("blcokMe").style.display = "block";	
 				document.getElementById("menuInput").style.display = "none";
 				var obj = JSON.parse(localStorage.getItem("checkSt"));
@@ -256,6 +259,7 @@ function preload(){
 	<input type="password" id="enterPassword" placeholder="請輸入自訂密碼"> <br>
 	<button id="setpw" onclick="setLocalStorage(document.getElementById('enterPassword').value)">進入</button>
 	<button id="getpw"onclick="checkLocalStorage(document.getElementById('enterPassword').value)">進入</button>
+	<span onclick="localStorage.removeItem('checkSt');location.reload();" style="color:#50ae8a;  font-size:100px; position:absolute; top: 65%;">取消</span>
 </div>
 </body>
 	
