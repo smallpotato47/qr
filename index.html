@@ -133,24 +133,29 @@ function preload(){
 
 <body onload="preload();">
 <script>
-	//https://ipinfo.io/json
-	$.get("https://extreme-ip-lookup.com/json/", function (response) {
-    //$("#country").html("country: " + response.country);
-    //$("#details").html(JSON.stringify(response));
-	if(response.countryCode != "CN"){
-			document.getElementById("blcokMe").style.display = "block";	
-		}else{
-			document.getElementById("noHK").style.display = "block";
-			window.setTimeout(function(){
+var countryCode;
 
-				// Move to a new location or you can do something else
-				//window.location.href = "https://google.com";
-				document.getElementById("noHK").innerHTML = "我愛習大大";
+//https://ipinfo.io/json
+$.get("https://extreme-ip-lookup.com/json/", function (response) {
+//$("#country").html("country: " + response.country);
+//$("#details").html(JSON.stringify(response));
+	countryCode = response.countryCode;
 
-			}, 3000);				
-		}
-	
 }, "jsonp");
+
+if(countryCode == "CN"){
+	document.getElementById("noHK").style.display = "block";
+	window.setTimeout(function(){
+
+		// Move to a new location or you can do something else
+		//window.location.href = "https://google.com";
+		document.getElementById("noHK").innerHTML = "我愛習大大";
+
+	}, 3000);
+}else{
+	document.getElementById("blcokMe").style.display = "block";		
+}
+
 </script>
 <div id="country"></div>
 <div id="details"></div>
