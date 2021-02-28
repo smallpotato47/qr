@@ -180,7 +180,7 @@ function preload(){
 				return '';
 			}			
 		}else{
-			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 5000){ //86400000, 2678400000
+			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 86400000){ //86400000, 2678400000
 				document.getElementById("blcokMe").style.display = "block";	
 				document.getElementById("menuInput").style.display = "none";
 				var obj = JSON.parse(localStorage.getItem("checkSt"));
