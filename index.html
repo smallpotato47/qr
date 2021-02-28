@@ -29,7 +29,8 @@
 			background-color: #50ae8a;
 		}
 		#blcokMe{
-			z-index:777;	
+			display:none;
+			z-index:777;
 		}
 		.imgbox {
 			z-index:1;
@@ -87,55 +88,109 @@
 			50%{ left : 70%;}
 			100%{ left: 30%;}
 		}
+	::placeholder {
+		color: #cccccc;
+		opacity: 0.7; /* Firefox */
+		font-weight:400;
+	}
+	#menuInput {
+		position:relative;
+		z-index:2100;
+		top: 78vh;*/
+		display: none;
+		z-index: 2100;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		padding: 100vh;
+	}
+	input[type="password"]{
+		text-align:center;
+		width: 100%;
+		padding: 12px 20px;
+		margin: 0 auto;
+		box-sizing: border-box;
+		border: none;
+		background-color: #3CBC8D;
+		color: rgb(254, 212, 38);
+		font-size:30px;
+		font-family: myFirstFont;
+		font-weight:600;
+	}
+	button{
+		display: block;
+		margin: auto;
+		margin-bottom: 16px;
+		margin-top: 10%;
+		font-size: 24px;
+		padding: 10px 100px;
+		border-radius: 48px;
+		background-color: #fed426;
+		box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 50%);
+		border: 0;
+		outline: none;
+		font-family: myFirstFont;
+		font-weight:600;		
+	}
+	#getpw{
+		display:none;
+	}
 		
 	</style>
 </head>
 <script>
-function setLocalStorage(){
-	var pw = prompt("請自訂密碼");		
-	var checkSt = [pw,true,new Date().getTime()];
-	localStorage.setItem("checkSt", JSON.stringify(checkSt));
-	document.getElementById("blcokMe").style.display = "block";	
+function setLocalStorage(pw){
+	var pw = document.getElementById("enterPassword").value;
+	if(pw != ""){		
+		var checkSt = [pw,true,new Date().getTime()];
+		localStorage.setItem("checkSt", JSON.stringify(checkSt));
+		document.getElementById("blcokMe").style.display = "block";	
+		document.getElementById("menuInput").style.display = "none";
+	}
 }
 
 function checkLocalStorage(){
-	var pw = prompt("請輸入密碼");		
+	var pw = document.getElementById("enterPassword").value;		
 	if (pw == (JSON.parse(localStorage.getItem("checkSt"))[0])) {
 		document.getElementById("blcokMe").style.display = "block";	
+		document.getElementById("menuInput").style.display = "none";
 		var obj = JSON.parse(localStorage.getItem("checkSt"));
 		obj[2] = new Date().getTime();
 		localStorage.setItem("checkSt", JSON.stringify(obj));		
 	}else{
 		document.getElementById("noHK").style.display = "block";
-		window.setTimeout(function(){		
-			document.getElementById("noHK").innerHTML = "我愛習大大";
-		}, 3000);
+		document.getElementById("menuInput").style.display = "none";
+		document.getElementById("noHK").innerHTML = "我愛習大大";
 	}	
 }
 
 function preload(){	
-	/*if (localStorage.hasOwnProperty('checkSt')){
+	if (localStorage.hasOwnProperty('checkSt')){
 	console.log((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]));
 		if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) > 31536000000){ //31536000000			
 			if(confirm("Delete All?")){							
 				localStorage.clear();
-				setLocalStorage();
+				location.reload();
 			} else {
 				return '';
 			}			
 		}else{
-			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 86400000){ //86400000, 2678400000
+			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 5000){ //86400000, 2678400000
 				document.getElementById("blcokMe").style.display = "block";	
+				document.getElementById("menuInput").style.display = "none";
 				var obj = JSON.parse(localStorage.getItem("checkSt"));
 				obj[2] = new Date().getTime();
 				localStorage.setItem("checkSt", JSON.stringify(obj));
 			}else{
-				checkLocalStorage();
+				document.getElementById("setpw").style.display = "none";
+				document.getElementById("getpw").style.display = "block";
 			}
 		}
 	}else{
-		setLocalStorage();		
-	}*/
+		return "";	
+	}
 
 
 	var d = new Date();		
@@ -196,6 +251,11 @@ function preload(){
 			.catch(err => console.log('Error!', err));
 		}
 	</script>
+</div>
+<div id="menuInput">
+	<input type="password" id="enterPassword" placeholder="請輸入自訂密碼"> <br>
+	<button id="setpw" onclick="setLocalStorage(document.getElementById('enterPassword').value)">進入</button>
+	<button id="getpw"onclick="checkLocalStorage(document.getElementById('enterPassword').value)">進入</button>
 </div>
 </body>
 	
