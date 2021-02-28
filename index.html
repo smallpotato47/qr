@@ -133,15 +133,15 @@ function preload(){
 
 <body onload="preload();">
 <script>
-var countryCode;
+var countryCode = "";
 
 //https://ipinfo.io/json
-$.get("https://extreme-ip-lookup.com/json/", function (response) {
+/*$.get("https://extreme-ip-lookup.com/json/", function (response) {
 //$("#country").html("country: " + response.country);
 //$("#details").html(JSON.stringify(response));
 	countryCode = response.countryCode;
 
-}, "jsonp");
+}, "jsonp");*/
 
 if(countryCode == "CN"){
 	document.getElementById("noHK").style.display = "block";
