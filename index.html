@@ -29,6 +29,7 @@
 			background-color: #50ae8a;
 		}
 		#blcokMe{
+			display:none;
 			z-index:777;	
 		}
 		.imgbox {
@@ -92,7 +93,29 @@
 </head>
 <script src="jquery.min.js"></script>
 <script>
-function preload(){	 
+function preload(){
+	if (!localStorage.hasOwnProperty('checkSt')){
+		var pw = prompt("請輸入密碼");
+		var checkSt = false;
+		if (pw == "肥主主") {
+			document.getElementById("blcokMe").style.display = "block";	
+			checkSt = true;
+			localStorage.setItem("checkSt", checkSt);
+		}else{
+			document.getElementById("noHK").style.display = "block";
+			window.setTimeout(function(){
+
+				// Move to a new location or you can do something else
+				//window.location.href = "https://google.com";
+				document.getElementById("noHK").innerHTML = "我愛習大大";
+
+			}, 3000);
+		}
+	}else{
+		document.getElementById("blcokMe").style.display = "block";	
+	}
+
+
 	var d = new Date();		
 	var dyesterday = new Date();
 	dyesterday.setDate(dyesterday.getDate() -1 );
