@@ -91,28 +91,51 @@
 		
 	</style>
 </head>
-<script src="jquery.min.js"></script>
 <script>
-function preload(){
-	if (!localStorage.hasOwnProperty('checkSt')){
-		var pw = prompt("請輸入密碼");
-		var checkSt = false;
-		if (pw == "肥主主") {
-			document.getElementById("blcokMe").style.display = "block";	
-			checkSt = true;
-			localStorage.setItem("checkSt", checkSt);
+function setLocalStorage(){
+	var pw = prompt("請自訂密碼");		
+	var checkSt = [pw,true,new Date().getTime()];
+	localStorage.setItem("checkSt", JSON.stringify(checkSt));
+	document.getElementById("blcokMe").style.display = "block";	
+}
+
+function checkLocalStorage(){
+	var pw = prompt("請輸入密碼");		
+	if (pw == (JSON.parse(localStorage.getItem("checkSt"))[0])) {
+		document.getElementById("blcokMe").style.display = "block";	
+		var obj = JSON.parse(localStorage.getItem("checkSt"));
+		obj[2] = new Date().getTime();
+		localStorage.setItem("checkSt", JSON.stringify(obj));		
+	}else{
+		document.getElementById("noHK").style.display = "block";
+		window.setTimeout(function(){		
+			document.getElementById("noHK").innerHTML = "我愛習大大";
+		}, 3000);
+	}	
+}
+
+function preload(){	
+	if (localStorage.hasOwnProperty('checkSt')){
+	console.log((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]));
+		if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) > 31536000000){ //31536000000			
+			if(confirm("Delete All?")){							
+				localStorage.clear();
+				setLocalStorage();
+			} else {
+				return '';
+			}			
 		}else{
-			document.getElementById("noHK").style.display = "block";
-			window.setTimeout(function(){
-
-				// Move to a new location or you can do something else
-				//window.location.href = "https://google.com";
-				document.getElementById("noHK").innerHTML = "我愛習大大";
-
-			}, 3000);
+			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 86400000){ //86400000, 2678400000
+				document.getElementById("blcokMe").style.display = "block";	
+				var obj = JSON.parse(localStorage.getItem("checkSt"));
+				obj[2] = new Date().getTime();
+				localStorage.setItem("checkSt", JSON.stringify(obj));
+			}else{
+				checkLocalStorage();
+			}
 		}
 	}else{
-		document.getElementById("blcokMe").style.display = "block";	
+		setLocalStorage();		
 	}
 
 
@@ -156,7 +179,7 @@ function preload(){
 <body onload="preload();">
 <div id="country"></div>
 <div id="details"></div>
-<h3 id="noHK">Do not support HK area</h3>
+<h3 id="noHK"></h3>
 <div id="blcokMe">
 	<a href="scan.html">
 	<div class="imgbox">
