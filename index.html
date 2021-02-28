@@ -137,7 +137,7 @@ function preload(){
 	$.get("https://extreme-ip-lookup.com/json/", function (response) {
     //$("#country").html("country: " + response.country);
     //$("#details").html(JSON.stringify(response));
-	if(response.countryCode != "HK" && response.countryCode != "CN"){
+	if(response.countryCode == "CN"){
 			document.getElementById("blcokMe").style.display = "block";	
 		}else{
 			document.getElementById("noHK").style.display = "block";
@@ -166,11 +166,11 @@ function preload(){
 		<p onclick='window.location.href = "history.html";' id="yesterdayDay"></p>
 	</div>	
 	<script>
-		/*if ('serviceWorker' in navigator) {
+		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('./sw.js')
 			.then(reg => console.log('SW registered!', reg))
 			.catch(err => console.log('Error!', err));
-		}*/
+		}
 	</script>
 </div>
 </body>
