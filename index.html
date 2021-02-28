@@ -29,7 +29,6 @@
 			background-color: #50ae8a;
 		}
 		#blcokMe{
-			display:none;
 			z-index:777;	
 		}
 		.imgbox {
@@ -115,7 +114,7 @@ function checkLocalStorage(){
 }
 
 function preload(){	
-	if (localStorage.hasOwnProperty('checkSt')){
+	/*if (localStorage.hasOwnProperty('checkSt')){
 	console.log((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]));
 		if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) > 31536000000){ //31536000000			
 			if(confirm("Delete All?")){							
@@ -136,7 +135,7 @@ function preload(){
 		}
 	}else{
 		setLocalStorage();		
-	}
+	}*/
 
 
 	var d = new Date();		
