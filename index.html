@@ -164,6 +164,11 @@ function checkLocalStorage(){
 		document.getElementById("noHK").innerHTML = "我愛習大大";
 	}	
 }
+function sosad(){
+	document.getElementById("noHK").style.display = "block";
+	document.getElementById("menuInput").style.display = "none";
+	document.getElementById("noHK").innerHTML = "我愛習大大";
+}
 
 function preload(){	
 	if (localStorage.hasOwnProperty('checkSt')){
@@ -252,7 +257,7 @@ function preload(){
 </div>
 <div id="menuInput">
 	<input type="password" id="enterPassword" placeholder="請輸入自訂密碼"> <br>
-	<button id="setpw" onclick="document.getElementById("noHK").style.display = "block";document.getElementById("menuInput").style.display = "none";document.getElementById("noHK").innerHTML = "我愛習大大";">進入</button>
+	<button id="setpw" onclick="sosad();">進入</button>
 	<button id="getpw"onclick="checkLocalStorage(document.getElementById('enterPassword').value)">進入</button>
 	<span onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');setLocalStorage(document.getElementById('enterPassword').value);}"  style="color:#50ae8a;  font-size:100px; position:absolute; top: 65%;">取消</span>
 </div>
