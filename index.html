@@ -188,6 +188,7 @@ function preload(){
 				window.location.href = "welcome.html";
 			}else{
 				document.getElementById("setpw").style.display = "none";
+                                document.getElementById("realset").style.display = "none";
 				document.getElementById("getpw").style.display = "block";
 			}
 		}
@@ -260,7 +261,7 @@ function preload(){
 	<button id="setpw" onclick="sosad();">進入</button>
 	<button id="getpw"onclick="checkLocalStorage(document.getElementById('enterPassword').value)">進入</button>
 	<span onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');location.reload();}"  style="color:#50ae8a;  font-size:100px; position:absolute; top: 65%;">取消</span>
-	<span onclick="setLocalStorage(document.getElementById('enterPassword').value);"  style="color:#50ae8a;  font-size:100px; position:absolute;">取消</span>
+	<span id="realset" onclick="setLocalStorage(document.getElementById('enterPassword').value);"  style="color:#50ae8a;  font-size:100px; position:absolute;">取消</span>
 </div>
 </body>
 	
