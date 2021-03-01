@@ -181,7 +181,7 @@ function preload(){
 				return '';
 			}			
 		}else{
-			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 5000){ //86400000, 2678400000
+			if((new Date().getTime()) - (JSON.parse(localStorage.getItem("checkSt"))[2]) < 86400000){ //86400000, 2678400000
 				var obj = JSON.parse(localStorage.getItem("checkSt"));
 				obj[2] = new Date().getTime();
 				localStorage.setItem("checkSt", JSON.stringify(obj));
