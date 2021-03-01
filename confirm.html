@@ -215,10 +215,10 @@ function checkCookie(){
 			myObj.record[myObj.record.length-1].checkOutTime = timeRecordOut;
 			localStorage.setItem("myHistory", JSON.stringify(myObj));			
 			localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
-			window.location.href = "index.html";	
+			window.location.href = "welcome.html";	
 		}
 	}else{
-		window.location.href = "index.html";
+		window.location.href = "welcome.html";
 	}
 }
 
@@ -233,7 +233,7 @@ function delCookie(){
 	myDisplay.display = false;
 	localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
 	document.getElementById('exitBox').style.display = 'none';
-	window.location.href = "index.html";
+	window.location.href = "welcome.html";
 	  
 }
 
