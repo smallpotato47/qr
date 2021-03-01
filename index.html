@@ -259,7 +259,7 @@ function preload(){
 	<input type="password" id="enterPassword" placeholder="請輸入自訂密碼"> <br>
 	<button id="setpw" onclick="sosad();">進入</button>
 	<button id="getpw"onclick="checkLocalStorage(document.getElementById('enterPassword').value)">進入</button>
-	<span onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');setLocalStorage(document.getElementById('enterPassword').value);}"  style="color:#50ae8a;  font-size:100px; position:absolute; top: 65%;">取消</span>
+	<span onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');location.reload();}"  style="color:#50ae8a;  font-size:100px; position:absolute; top: 65%;">取消</span>
 </div>
 </body>
 	
