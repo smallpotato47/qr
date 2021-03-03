@@ -38,53 +38,7 @@
 			height: 100%;
 			text-shadow: rgb(0 0 0 / 70%) 0px 1px 2px;
 		}
-		
-		.content {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			-webkit-box-pack: center;
-			justify-content: center;
-			flex-direction: column;
-		}
-		
-		.youHvEnter {
-			color: rgb(255, 255, 255);
-			text-align: center;
-			font-size: 17px;
-			margin-top: 25%;
-			margin-bottom:1%;
-			}
-	
-		.cookiePlace {
-			font-family: myFirstFont, "Microsoft JhengHei" ;
-			text-align: center;
-			font-size: 31px;
-			background-color: transparent;
-			border: 0px;
-			outline: none;
-			margin: 0 auto;
-			color: rgb(254, 212, 38);
-			line-height: 36px;
-			font-weight:600;
-			width:80%;
-			letter-spacing: -1px;
-			text-shadow: rgb(0 0 0 / 70%) 0px 1px 2px;
-			margin-bottom:1%;
-			word-wrap: break-word; 
-			word-break: normal;
-		}
-		.cookieDate {
-			color: rgb(255, 255, 255);
-			font-size: 18px;
-			text-align: center;
-		}
-
-		.ticktick {
-			margin: 20% auto auto;
-			width: 32%;
-			max-height: 110px;
-		}
+				
 		.changeTick {
 			width: 10%;
 			text-align: left;
@@ -141,10 +95,7 @@
 		}
 		.crossImg {
 			height: 20px;
-			float: right;
-			position: absolute;
-			top: 24px;
-			right: 24px;
+			margin:24px;
 		}
 		
 		input[type="number"]{
@@ -174,6 +125,282 @@
 			outline: none;
 			font-family: myFirstFont;
 			font-weight:600;		
+		}		
+		.crosswow{
+			width: 100%;
+			display: flex;
+			-webkit-box-pack: end;
+			justify-content: flex-end;
+			flex-shrink: 0;
+		}
+		.topbar{
+			width: 100%;
+			height: 25%;
+			display: flex;
+			flex-direction: column;
+			-webkit-box-pack: center;
+			justify-content: center;
+		}
+		.midbar{
+			height: 100%;
+			width: 100%;
+			text-align: center;
+		}
+		.midmidbar{
+			height: 100%;
+			max-height: 200px;
+			display: flex;
+			flex-direction: column;
+			-webkit-box-pack: center;
+			justify-content: center;
+		}
+		.content {
+			width: 100%;
+			height: 100%;
+			text-shadow: rgb(0 0 0 / 80%) 0px 1px 2px;
+			display: flex;
+			flex-direction: column;
+			color: rgb(255, 255, 255);
+		}
+
+		.youHvEnter {
+			color: rgb(255, 255, 255);
+			text-align: center;
+			font-size: 17px;
+			//margin-top: 25%;
+			margin-bottom:1%;
+			}
+
+		.cookiePlace {
+			font-family: myFirstFont, "Microsoft JhengHei" ;
+			text-align: center;
+			font-size: 31px;
+			background-color: transparent;
+			border: 0px;
+			outline: none;
+			margin: 0 auto;
+			color: rgb(254, 212, 38);
+			line-height: 36px;
+			font-weight:600;
+			width:80%;
+			letter-spacing: -1px;
+			text-shadow: rgb(0 0 0 / 70%) 0px 1px 2px;
+			margin-bottom:1%;
+			word-wrap: break-word; 
+			word-break: normal;
+		}
+		.cookieDate {
+			color: rgb(255, 255, 255);
+			font-size: 18px;
+			text-align: center;
+		}
+
+		.ticktick {
+			display: inline-block;
+			height: 100%;
+			max-height: 110px;
+		}
+
+
+
+		#outerPop{
+			display:none;
+			z-index: 2200;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80vw;
+			background-color: rgb(0,0,0,0.5);
+			padding: 100vh;
+			text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
+		}
+
+		#outerPop *{
+			text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
+			background-color: rgb(255, 255, 255);
+		}
+
+		.popOut{
+			position: absolute;
+			inset: 50% 40px 40px 50%;
+			border: 0px;
+			background-color: rgb(255, 255, 255);
+			overflow: hidden;
+			border-radius: 8px;
+			outline: none;
+			padding: 16px;
+			width: 240px;
+			transform: translate(-50%, -50%);
+			height: 370px;
+		}
+		.crossBar {
+			display: flex;
+			width: 100%;
+			-webkit-box-pack: end;
+			justify-content: flex-end;
+		}
+		.blackCross {
+			height: 20px;
+		}
+		.exitTitle {
+			font-size: 20px;
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 0px;
+		}
+		.scrollPage {
+			overflow: auto;
+			height: 180px;
+			padding: 0px 8px;
+		}
+		.scrollul {
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.scrollli {
+			background-color: rgb(255, 255, 255);
+			line-height: 40px;
+			border-bottom: 1px solid rgb(238, 238, 238);
+			padding: 0px 8px;
+		}
+
+		.greenTick {
+			height: 32px;
+			position: relative;
+			float: right;
+			top: 4px;
+			display:none;
+		}
+		.actived{
+			display:block;
+		}
+
+		.yrTime {
+			font-size: 12px;
+			text-align: center;
+			padding: 16px 0px;
+		}
+
+		.yesButton {
+			display: block;
+			margin: auto auto 16px;
+			font-size: 24px;
+			padding: 10px 0px;
+			width: 80%;
+			border-radius: 48px;
+			flex-shrink: 0;
+			max-width: 280px;
+			font-weight: 500;
+			background-color: rgb(254, 212, 38) !important;;
+			border: 0px;
+			outline: none;
+			font-size: 16px;
+			padding: 12px 0px;
+			width: 90%;
+		}
+		#exitBox{
+			display:none;
+			position: fixed;
+			inset: 0px;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		.exitBoxContainer{
+			position: absolute;
+			inset: 50% 40px 40px 50%;
+			border: 0px;
+			background: rgb(255, 255, 255);
+			overflow: hidden;
+			border-radius: 8px;
+			outline: none;
+			padding: 16px;
+			width: 240px;
+			transform: translate(-50%, -50%);
+			height: 430px;
+		}
+
+		#exitBox *{
+			text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
+			background-color: rgb(255, 255, 255);
+		}
+
+		.bjNVbG {
+			display: flex;
+			width: 100%;
+			-webkit-box-pack: end;
+			justify-content: flex-end;
+			margin-bottom: 8px;
+		}
+		.cYLuAZ {
+			height: 20px;
+		}
+		.XavQL {
+			text-align: center;
+			font-size: 16px;
+		}
+		.guKkvw {
+			color: unset;
+			text-shadow: none;
+			text-align: center;
+			font-size: 28px;
+			font-weight: 500;
+			line-height: 48px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.kCQmsc {
+			text-align: center;
+			font-size: 14px;
+		}
+		.cSnsVU {
+			font-size: 20px;
+			text-align: center;
+			margin: 64px 0px;
+			font-weight: bold;
+		}
+		.fTLfYv {
+			font-size: 12px;
+			text-align: center;
+			padding: 12px 0px;
+		}
+		.bhdLno {
+			font-size: 16px;
+			padding: 12px 0px;
+			width: 90%;
+			font-weight: unset;
+			display: block;
+			margin: auto auto 16px;
+			padding: 10px 0px;
+			width: 80%;
+			border-radius: 48px;
+			flex-shrink: 0;
+			max-width: 280px;
+			font-weight: 500;
+			background-color: rgb(254, 212, 38) !important;
+			border: 0px;
+			outline: none;
+		}
+		.kGntgQ {
+			background-color: rgb(18, 177, 136)!important;
+			color: rgb(255, 255, 255);
+			text-shadow: rgb(0 0 0 / 80%) 0px 1px 2px;
+			font-size: 16px;
+			padding: 12px 0px;
+			width: 90%;
+			font-weight: unset;
+			display: block;
+			margin: auto auto 16px;
+			padding: 10px 0px;
+			width: 80%;
+			border-radius: 48px;
+			flex-shrink: 0;
+			max-width: 280px;
+			font-weight: 500;
+			border: 0px;
+			outline: none;
 		}
 		
 </style>
@@ -274,11 +501,19 @@ function changeTime(time){
 	
 <body onload="checkCookie()">
 <div class="content">
+<div class="crosswow">
 <img src="image/cross.d2bbc7f7.svg" class="crossImg" onclick="document.getElementById('exitBox').style.display = 'block';">
-<div class="youHvEnter">你已進入場所</div>
-<p class="cookiePlace" id="myPlace"></p>
-<div id="cookieDate" class="cookieDate"></div>
+</div>
+<div class="topbar">
+	<div class="youHvEnter">你已進入場所</div>
+	<p class="cookiePlace" id="myPlace"></p>
+	<div id="cookieDate" class="cookieDate"></div>
+</div>
+<div class="midbar">
+<div class="midmidbar">
 <img src="image/tick.6d45b966.svg" class="ticktick">
+</div>
+</div>
 
 
 
@@ -376,205 +611,7 @@ function gogogo(){
 
 </body>
 <style>
-#outerPop{
-	display:none;
-	z-index: 2200;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80vw;
-	background-color: rgb(0,0,0,0.5);
-	padding: 100vh;
-	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
-}
 
-#outerPop *{
-	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
-	 background-color: rgb(255, 255, 255);
-}
-
-.popOut{
-	position: absolute;
-    inset: 50% 40px 40px 50%;
-    border: 0px;
-    background-color: rgb(255, 255, 255);
-    overflow: hidden;
-    border-radius: 8px;
-    outline: none;
-    padding: 16px;
-    width: 240px;
-    transform: translate(-50%, -50%);
-    height: 370px;
-}
-.crossBar {
-    display: flex;
-    width: 100%;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-}
-.blackCross {
-    height: 20px;
-}
-.exitTitle {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
-}
-.scrollPage {
-    overflow: auto;
-    height: 180px;
-    padding: 0px 8px;
-}
-.scrollul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-}
-
-.scrollli {
-	background-color: rgb(255, 255, 255);
-    line-height: 40px;
-    border-bottom: 1px solid rgb(238, 238, 238);
-    padding: 0px 8px;
-}
-
-.greenTick {
-    height: 32px;
-    position: relative;
-    float: right;
-    top: 4px;
-	display:none;
-}
-.actived{
-	display:block;
-}
-
-.yrTime {
-    font-size: 12px;
-    text-align: center;
-    padding: 16px 0px;
-}
-
-.yesButton {
-    display: block;
-    margin: auto auto 16px;
-    font-size: 24px;
-    padding: 10px 0px;
-    width: 80%;
-    border-radius: 48px;
-    flex-shrink: 0;
-    max-width: 280px;
-    font-weight: 500;
-    background-color: rgb(254, 212, 38) !important;;
-    border: 0px;
-    outline: none;
-	font-size: 16px;
-    padding: 12px 0px;
-    width: 90%;
-}
-#exitBox{
-	display:none;
-	position: fixed;
-    inset: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.exitBoxContainer{
-	position: absolute;
-	inset: 50% 40px 40px 50%;
-	border: 0px;
-	background: rgb(255, 255, 255);
-	overflow: hidden;
-	border-radius: 8px;
-	outline: none;
-	padding: 16px;
-	width: 240px;
-	transform: translate(-50%, -50%);
-	height: 430px;
-}
-
-#exitBox *{
-	text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
-	 background-color: rgb(255, 255, 255);
-}
-
-.bjNVbG {
-    display: flex;
-    width: 100%;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-    margin-bottom: 8px;
-}
-.cYLuAZ {
-    height: 20px;
-}
-.XavQL {
-    text-align: center;
-    font-size: 16px;
-}
-.guKkvw {
-    color: unset;
-    text-shadow: none;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 48px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.kCQmsc {
-    text-align: center;
-    font-size: 14px;
-}
-.cSnsVU {
-    font-size: 20px;
-    text-align: center;
-    margin: 64px 0px;
-    font-weight: bold;
-}
-.fTLfYv {
-    font-size: 12px;
-    text-align: center;
-    padding: 12px 0px;
-}
-.bhdLno {
-    font-size: 16px;
-    padding: 12px 0px;
-    width: 90%;
-    font-weight: unset;
-	display: block;
-    margin: auto auto 16px;
-    padding: 10px 0px;
-    width: 80%;
-    border-radius: 48px;
-    flex-shrink: 0;
-    max-width: 280px;
-    font-weight: 500;
-    background-color: rgb(254, 212, 38) !important;
-    border: 0px;
-    outline: none;
-}
-.kGntgQ {
-    background-color: rgb(18, 177, 136)!important;
-    color: rgb(255, 255, 255);
-    text-shadow: rgb(0 0 0 / 80%) 0px 1px 2px;
-	font-size: 16px;
-    padding: 12px 0px;
-    width: 90%;
-    font-weight: unset;
-	display: block;
-    margin: auto auto 16px;
-    padding: 10px 0px;
-    width: 80%;
-    border-radius: 48px;
-    flex-shrink: 0;
-    max-width: 280px;
-    font-weight: 500;
-    border: 0px;
-    outline: none;
-}
 
 </style>
 	
