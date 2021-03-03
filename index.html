@@ -195,42 +195,6 @@ function preload(){
 	}else{
 		return '';	
 	}
-
-
-	var d = new Date();		
-	var dyesterday = new Date();
-	dyesterday.setDate(dyesterday.getDate() -1 );
-	var weekday = new Array(7);
-	  weekday[0] = "星期日";
-	  weekday[1] = "星期一";
-	  weekday[2] = "星期二";
-	  weekday[3] = "星期三";
-	  weekday[4] = "星期四";
-	  weekday[5] = "星期五";
-	  weekday[6] = "星期六";
-	  var n = weekday[d.getDay()];
-	  
-	  var timeRecord = d.getFullYear() + "-" + ((d.getMonth() +1 )<10?'0':'') + (d.getMonth() +1 )+"-"+ (d.getDate()<10?'0':'') + d.getDate() + ", " + n;
-	  var yesterdayRecord = dyesterday.getFullYear() + "-" + ((dyesterday.getMonth() +1 )<10?'0':'') + (dyesterday.getMonth() +1 )+"-"+ (dyesterday.getDate()<10?'0':'') + dyesterday.getDate();
-	  
-	  //var yesterday = oldDay.getFullYear() + "-" + (oldDay.getMonth() +1 )+"-"+ oldDay.getDate();
-	//document.getElementById("todayDay").innerHTML = timeRecord;
-	//document.getElementById("yesterdayDay").innerHTML = "最後更新 "+ yesterdayRecord;
-	
-	var x = screen.width;
-	var y = screen.height;
-	var ratio = y/x;
-	console.log(ratio);
-	if (ratio < 2){
-		document.getElementById("myImg").src = "image/welcome33.jpg";
-		
-		document.getElementById("todayDay").style.backgroundColor = "#12b188";
-		document.getElementById("todayDay").style.top = "10%";
-		document.getElementById("todayDay").style.left = "7%";
-		
-		document.getElementById("yesterdayDay").style.top = "76.2%";
-		document.getElementById("yesterdayDay").style.left = "11%";		
-	}
 }
 </script>
 
