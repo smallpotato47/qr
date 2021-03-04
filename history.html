@@ -79,9 +79,9 @@
 		padding-bottom: 1%;
 		font-weight:bold;
 		word-wrap: break-word;
-    		word-break: normal;
+    	word-break: normal;
 		text-align: justify;
-    		width: 90%;
+    	width: 100%;
 	}
 	.historyTime{
 		font-size: 13px;
@@ -160,7 +160,7 @@ function preload(){
 	}else{		
 		for (var i = myObj.record.length - 1 ; i >= 0 ; i--){
 			if(i == 0){
-				historyTxt += "<div class='historyPlace' style='padding-top:15px;'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: calc(var(--footer-height) + 8%) ;'>" + myObj.record[i].checkInTime + " " + myObj.record[i].checkOutTime + "</div>" ;
+				historyTxt += "<div style='padding-top: 5%;padding-bottom: 5%;width: 90%;'><div class='historyPlace' style='padding-top:15px;'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: calc(var(--footer-height) + 8%) ;'>" + myObj.record[i].checkInTime + " " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}else{
 				historyTxt += "<div class='historyLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime'>" + myObj.record[i].checkInTime + " " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}
