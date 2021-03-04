@@ -193,14 +193,16 @@ function checkCookie(){
 			window.location.href = "confirm.html";	
 		}else{
 			var myDisplay = JSON.parse(localStorage.getItem("myDisplay"));	
-			myDisplay.display = false;	
-			oldTime.setMinutes(oldTime.getMinutes() + (myDisplay.expires / 60000));
+			myDisplay.display = false;
+			localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
+			
+			/*oldTime.setMinutes(oldTime.getMinutes() + (myDisplay.expires / 60000));
 			var timeRecordOut = oldTime.getFullYear() + "-" + (oldTime.getMonth()<10?'0':'') + (oldTime.getMonth() +1 )+"-"+ (oldTime.getDate()<10?'0':'') + oldTime.getDate() + " " +(oldTime.getHours()<10?'0':'') + oldTime.getHours() +":"+ (oldTime.getMinutes()<10?'0':'') + oldTime.getMinutes();
 			
 			var myObj = JSON.parse(localStorage.getItem("myHistory"));
 			myObj.record[myObj.record.length-1].checkOutTime = timeRecordOut;
-			localStorage.setItem("myHistory", JSON.stringify(myObj));			
-			localStorage.setItem("myDisplay", JSON.stringify(myDisplay));
+			localStorage.setItem("myHistory", JSON.stringify(myObj));*/		
+			
 		}
 	}
 }
