@@ -59,29 +59,30 @@
 	#myRecord{
 		background-color: white;
 		position:absolute;
-		padding:13% 5% 0% 5%;
+		//padding:13% 5% 0% 5%;
+		padding:50px 15px 0px 15px;
 		font-size:18px;
 		text-align:left;
 		color:#6c6c6c;
 		width:100%;
-		height:calc(100% - var(--footer-height));
+		height:calc(100% - var(--footer-height) + 50px);
 		overflow-y:scroll;
 	}
 	.historyLine{
-		padding-top:5%;
-		padding-bottom:5%; 
+		padding-top:20px;
+		padding-bottom:20px; 
 		border-bottom: 1px solid #f0f0f0;
 		width:90%;
 	}
 	.historyPlace{
 		color: #292c34;
 		font-size: 18px;
-		padding-bottom: 1%;
+		padding-bottom: 5px;
 		font-weight:500;
 		word-wrap: break-word;
-    		word-break: normal;
+    	word-break: normal;
 		text-align: justify;
-    		width: 100%;
+    	width: 100%;
 	}
 	.historyTime{
 		font-size: 16px;
@@ -121,7 +122,7 @@
 	}
 	
 	:root {
-	  --footer-height: 15%;
+	  --footer-height: 110px;
 	}
 	
 	#norecord{
@@ -164,7 +165,7 @@ function preload(){
 	}else{		
 		for (var i = myObj.record.length - 1 ; i >= 0 ; i--){
 			if(i == 0){
-				historyTxt += "<div style='padding-top: 5%;width: 90%;'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: calc(var(--footer-height) + 8%) ;'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
+				historyTxt += "<div style='padding-top: 20px;width: 90%;'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: calc(var(--footer-height) + 8%) ;'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}else{
 				historyTxt += "<div class='historyLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}
