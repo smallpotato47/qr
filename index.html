@@ -6,7 +6,7 @@
 <head>
 	<link rel="icon" href="./image/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="theme-color" content="#50ae8a" />
+	<meta name="theme-color" content="#12b188" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="image/icon-192x192.png" />
@@ -26,7 +26,7 @@
 		* {
 			margin: 0;
 			padding: 0;
-			background-color: #50ae8a;
+			background-color: #12b188;
 		}
 		#blcokMe{
 			display:none;
@@ -200,20 +200,20 @@ function preload(){
 
 <body onload="preload();">
 <script>
-		/*if ('serviceWorker' in navigator) {
+		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('./sw.js')
 			.then(reg => console.log('SW registered!', reg))
 			.catch(err => console.log('Error!', err));
-		}*/
+		}
 </script>
 <h3 id="noHK"></h3>
-<div onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');location.reload();}"  style="color:#50ae8a;  font-size:100px; position:fixed; z-index:2200">重設</div>
+<div onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');location.reload();}"  style="color:#12b188;  font-size:100px; position:fixed; z-index:2200">重設</div>
 <div id="menuInput">
 	<input type="password" id="enterPassword" placeholder="請輸入自訂密碼"> <br>
 	<button id="setpw" onclick="sosad();">進入</button>
 	<button id="getpw"onclick="checkLocalStorage(document.getElementById('enterPassword').value)">進入</button>
 	
-	<span id="realset" onclick="setLocalStorage(document.getElementById('enterPassword').value);"  style="color:#50ae8a;  font-size:100px; position:absolute;">取消</span>
+	<span id="realset" onclick="setLocalStorage(document.getElementById('enterPassword').value);"  style="color:#12b188;  font-size:100px; position:absolute;">取消</span>
 </div>
 </body>
 	
