@@ -7,7 +7,7 @@
 <head>
 <link rel="icon" href="image/favicon.ico" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#12B188" />
+<meta name="theme-color" content="#13B188" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="image/icon-192x192.png" />
@@ -28,7 +28,7 @@
 		* {
 			margin: 0;
 			padding: 0;
-			background-color: #12B188;
+			background-color: #13B188;
 		}
 		
 		body {
@@ -38,29 +38,38 @@
 			height: 100%;
 			text-shadow: rgb(0 0 0 / 70%) 0px 1px 2px;
 		}
+		.myLogoImg{
+			width:100%;
+			display:flex;
+			padding: 10px 0px 50px 0px;
+		}
+		.myLogoImg img{
+			position:relative;
+			margin:0 calc(50% - 20px) 0 50%;
+		}
 				
 		.changeTick {
 			width: 10%;
 			text-align: left;
-			padding-left: 24px;
+			padding-left: 13%;
 			line-height: 32px;
 		}
 		#hourNumber {
 			width: 80%;
 			text-align: left;
 			line-height: 32px;
+			font-weight:500;
 		}
 		.textdis {
 			height: 32px;
 			display: inline-block;
 			vertical-align: top;
-			margin-right: 8px;
+			margin-right: 8px;			
 		}
 		.changestatus {
 			flex-shrink: 0;
-			padding-right: 24px;
+			padding-right: 13%;
 			line-height: 32px;
-			width:10%;
 		}
 		.subfooter {
 			margin-bottom: 16px;
@@ -72,7 +81,7 @@
 		.footerDiv {
 			width: 100%;
 			position: absolute;
-			bottom: 0px;
+			bottom: 30px;
 			text-align: center;
 			color: rgb(255, 255, 255);
 			padding-bottom: 40px;
@@ -91,7 +100,7 @@
 			outline: none;
 			font-family: Microsoft JhengHei;
 			font-weight:bold;
-			max-width: 300px;			
+			max-width: 280px;			
 		}
 		.crossImg {
 			height: 20px;
@@ -232,9 +241,9 @@
 			border-radius: 8px;
 			outline: none;
 			padding: 16px;
-			width: 240px;
+			width: 280px;
 			transform: translate(-50%, -50%);
-			height: 370px;
+			height: 430px;
 		}
 		.crossBar {
 			display: flex;
@@ -246,14 +255,14 @@
 			height: 20px;
 		}
 		.exitTitle {
-			font-size: 20px;
+			font-size: 24px;
 			text-align: center;
 			margin-top: 20px;
-			margin-bottom: 0px;
+			margin-bottom: 10px;
 		}
 		.scrollPage {
 			overflow: auto;
-			height: 180px;
+			height: 200px;
 			padding: 0px 8px;
 		}
 		.scrollul {
@@ -265,6 +274,7 @@
 		.scrollli {
 			background-color: rgb(255, 255, 255);
 			line-height: 40px;
+			font-size:16px;
 			border-bottom: 1px solid rgb(238, 238, 238);
 			padding: 0px 8px;
 		}
@@ -281,9 +291,9 @@
 		}
 
 		.yrTime {
-			font-size: 12px;
+			font-size: 15px;
 			text-align: center;
-			padding: 16px 0px;
+			padding: 28px 0px;
 		}
 
 		.yesButton {
@@ -320,9 +330,9 @@
 			border-radius: 8px;
 			outline: none;
 			padding: 16px;
-			width: 240px;
+			width: 280px;
 			transform: translate(-50%, -50%);
-			height: 430px;
+			height: 470px;
 		}
 
 		#exitBox *{
@@ -354,6 +364,7 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
+			font-weight: bold;
 		}
 		.kCQmsc {
 			text-align: center;
@@ -362,11 +373,11 @@
 		.cSnsVU {
 			font-size: 20px;
 			text-align: center;
-			margin: 64px 0px;
+			margin: 90px 0px;
 			font-weight: bold;
 		}
 		.fTLfYv {
-			font-size: 12px;
+			font-size: 16px;
 			text-align: center;
 			padding: 12px 0px;
 		}
@@ -506,9 +517,12 @@ function changeTime(time){
 <body onload="checkCookie()">
 <div class="content">
 <div class="crosswow">
-<img src="image/cross.d2bbc7f7.svg" class="crossImg" onclick="document.getElementById('exitBox').style.display = 'block';">
+	<div class="myLogoImg">
+		<img src="image/icon-192x192.png" width="80">
+	</div>
+	<img src="image/cross.d2bbc7f7.svg" class="crossImg" onclick="document.getElementById('exitBox').style.display = 'block';">
 </div>
-<div class="topbar">
+<div class="topbar">	
 	<div class="youHvEnter">你已進入場所</div>
 	<p class="cookiePlace" id="myPlace"></p>
 	<div id="cookieDate" class="cookieDate"></div>
@@ -523,9 +537,9 @@ function changeTime(time){
 
 <div class="footerDiv">
 	<div class="subfooter">
-		<div class="changeTick"><img src="image/checkbox.7f6c2da0.svg" class="textdis"></div><div id="hourNumber">4小時後自動離開</div><div class="changestatus" onclick="document.getElementById('outerPop').style.display = 'block';">變更</div>
+		<div class="changeTick"><img src="image/checkbox.7f6c2da0.svg" class="textdis"></div><div id="hourNumber">4小時後自動離開</div><div class="changestatus" onclick="document.getElementById('outerPop').style.display = 'block';" style="font-weight:bold;">變更</div>
 	</div>
-	<button class="exitclass" onclick="document.getElementById('exitBox').style.display = 'block';">離開</button>
+	<button class="exitclass" onclick="document.getElementById('exitBox').style.display = 'block';">離開場所</button>
 	<div>當你離開時請緊記按"離開"</div>	
 </div>
 
@@ -582,7 +596,7 @@ function changeTime(time){
          <div class="cSnsVU">你現在要離開嗎？</div>
          <div class="fTLfYv" id="exitBoxTime"></div>
          <button class="bhdLno" onclick="delCookie()">是的，我現在要離開</button> 
-         <button class="kGntgQ" onclick="delCookie()">我現已經離開了</button></div>
+         <button class="kGntgQ" onclick="delCookie()">我已經離開了</button></div>
       </div>
 </div>
 

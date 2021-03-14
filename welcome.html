@@ -6,7 +6,7 @@
 <head>
 	<link rel="icon" href="./image/favicon.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="theme-color" content="#50ae8a" />
+	<meta name="theme-color" content="#51ae8a" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="image/icon-192x192.png" />
@@ -26,7 +26,6 @@
 		* {
 			margin: 0;
 			padding: 0;
-			background-color: #50ae8a;
 		}
 		#blcokMe{
 			z-index:777;
@@ -51,7 +50,7 @@
 			left:8.5%;			
 			-webkit-font-smoothing: antialiased;
 			text-shadow: rgb(0 0 0 / 80%) 0px 1px 2px;
-			font-family: myFirstFont;			
+			font-family: myFirstFont;
 		}
 		#yesterdayDay{
 			font-size:15px;	
@@ -120,7 +119,7 @@ function preload(){
 <div id="blcokMe">
 	<a href="scan.html">
 	<div class="imgbox">
-		<img id = "myImg" src="image/welcome2.jpg" alt="welcome" class="center-fit">
+		<img id = "myImg" src="image/welcome.jpg" alt="welcome" class="center-fit">
 	</div>
 	</a>
 	<div class="text-z-index">
@@ -129,11 +128,11 @@ function preload(){
 	</div>	
 </div>
 <script>
-	if ('serviceWorker' in navigator) {
+	/*if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('./sw.js')
 		.then(reg => console.log('SW registered!', reg))
 		.catch(err => console.log('Error!', err));
-	}
+	}*/
 </script>
 </body>
 	

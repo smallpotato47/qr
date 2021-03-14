@@ -200,11 +200,11 @@ function preload(){
 
 <body onload="preload();">
 <script>
-		if ('serviceWorker' in navigator) {
+		/*if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('./sw.js')
 			.then(reg => console.log('SW registered!', reg))
 			.catch(err => console.log('Error!', err));
-		}
+		}*/
 </script>
 <h3 id="noHK"></h3>
 <div onclick="if(confirm('Reset password?')){localStorage.removeItem('checkSt');location.reload();}"  style="color:#50ae8a;  font-size:100px; position:fixed; z-index:2200">重設</div>
