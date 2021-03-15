@@ -84,7 +84,7 @@
 			bottom: 25px;
 			text-align: center;
 			color: rgb(255, 255, 255);
-			padding-bottom: min(10%, 40px);
+			padding-bottom: min(5%, 30px);
 		}
 
 		.exitclass {
@@ -237,7 +237,8 @@
 
 		.popOut{
 			position: absolute;
-			inset: 48% 40px 40px 50%;
+			top:50%;
+			left:50%;
 			border: 0px;
 			background-color: rgb(255, 255, 255);
 			overflow: hidden;
@@ -323,20 +324,26 @@
 			inset: 0px;
 			background-color: rgba(0, 0, 0, 0.5);
 			z-index:2200;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-webkit-transform:translate(-50%, -50%);
+			width: 80vw;
+			padding: 100vh;
+			text-shadow: rgb(0 0 0 / 70%) 0px 0px 0px;
 		}
 		.exitBoxContainer{
-			position: absolute;
-			inset: 47% 40px 40px 50%;
-			border: 0px;
-			background: rgb(255, 255, 255);
-			overflow: hidden;
-			border-radius: 8px;
-			outline: none;
-			padding: 16px;
-			width: 280px;
+			position: absolute;		
+			top:50%;
+			left:50%;
 			transform: translate(-50%, -50%);
 			-webkit-transform: translate(-50%, -50%);
-			height: 500px;
+			border: 0px;
+			background: rgb(255, 255, 255);
+			border-radius: 8px;
+			padding: 16px;
+			width: 280px;
+			height: 500px;						
 		}
 
 		#exitBox *{
@@ -585,7 +592,7 @@ function changeTime(time){
 </div>
 
 <div id="exitBox">
-         <div class="exitBoxContainer" tabindex="-1" role="dialog" aria-modal="true">
+         <div class="exitBoxContainer">
          <div class="sc-fFubgz bjNVbG">
             <img src="image/crossBlack.aafc0aee.svg" class="sc-fodVxV cYLuAZ" onclick="document.getElementById('exitBox').style.display = 'none';" />
          </div>
