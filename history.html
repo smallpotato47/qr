@@ -55,24 +55,27 @@
 		width:100%;
 		margin: 0% auto;
 	}
+	.myRecordContainer{
+		background-color:white;
+		position:absolute;
+		width:100%;
+		padding:min(13%,50px) 0px 0px 0px;
+		height:calc(100% - var(--footer-height) + 60px);
+		overflow-y:scroll;
+	}
 
 	#myRecord{
-		background-color: white;
-		position:absolute;
-		//padding:13% 5% 0% 5%;
-		padding:50px 25px 0px 25px;
+		padding:0;
 		font-size:18px;
 		text-align:left;
 		color:#6c6c6c;
 		width:100%;
-		height:calc(100% - var(--footer-height) + 60px);
-		overflow-y:scroll;
 	}
 	.historyLine{
-		padding-top:20px;
-		padding-bottom:20px; 
+		padding:20px 0px;
 		border-bottom: 1px solid #f0f0f0;
-		width:90%;
+		width:calc(100% - 40px);
+		margin:0 auto;
 	}
 	.historyPlace{
 		color: #292c34;
@@ -168,7 +171,7 @@ function preload(){
 	}else{		
 		for (var i = myObj.record.length - 1 ; i >= 0 ; i--){
 			if(i == 0){
-				historyTxt += "<div style='padding-top: 20px;width: 90%;'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: calc(var(--footer-height) + 8%) ;'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
+				historyTxt += "<div class='historyLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: min(40%,100px);'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}else{
 				historyTxt += "<div class='historyLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}
@@ -200,7 +203,9 @@ function delStorage() {
 		出行記錄
 	</div>
 	<div id = "norecord"></div>
-	<div id = "myRecord"></div>
+	<div class="myRecordContainer">
+		<div id = "myRecord"></div>
+	</div>
 </div>
 <div class="footerMessage">
 	<div class="lockerContainer">
