@@ -122,6 +122,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
 		z-index:1;	
 	}
 	.hiddenInput {
@@ -305,10 +306,13 @@ function showmenuInput(){
 	inset: 0px;
 	background-color: rgba(0, 0, 0, 0.8);
 	z-index:2000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
 }
 .exitBoxContainer{
 	position: absolute;
-	inset: 47% 40px 40px 50%;
 	border: 0px;
 	background: rgb(255, 255, 255);
 	overflow: hidden;
@@ -316,7 +320,10 @@ function showmenuInput(){
 	outline: none;
 	padding: 16px;
 	width: 280px;
+	top: 50%;
+	left: 50%;
 	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
 	height: 380px;
 }
 
