@@ -41,7 +41,7 @@
 		.myLogoImg{
 			width:100%;
 			display:flex;
-			padding: 10px 0px 50px 0px;
+			padding: 10px 0px min(12%,50px) 0px;
 		}
 		.myLogoImg img{
 			position:relative;
@@ -84,7 +84,7 @@
 			bottom: 25px;
 			text-align: center;
 			color: rgb(255, 255, 255);
-			padding-bottom: 40px;
+			padding-bottom: min(10%, 40px);
 		}
 
 		.exitclass {
@@ -176,15 +176,15 @@
 		.youHvEnter {
 			color: rgb(255, 255, 255);
 			text-align: center;
-			font-size: 17px;
+			font-size: 100%;
 			//margin-top: 25%;
-			margin-bottom:1%;
+			margin-bottom:6px;
 			}
 
 		.cookiePlace {
 			font-family: myFirstFont, "Microsoft JhengHei" ;
 			text-align: center;
-			font-size: 31px;
+			font-size: 195%;
 			background-color: transparent;
 			border: 0px;
 			outline: none;
@@ -195,20 +195,20 @@
 			width:80%;
 			letter-spacing: -1px;
 			text-shadow: rgb(0 0 0 / 70%) 0px 1px 2px;
-			margin-bottom:1%;
+			margin-bottom:6px;
 			word-wrap: break-word; 
 			word-break: normal;
 		}
 		.cookieDate {
 			color: rgb(255, 255, 255);
-			font-size: 18px;
+			font-size: 110%;
 			text-align: center;
 		}
 
 		.ticktick {
 			display: inline-block;
 			height: 100%;
-			max-height: 120px;
+			max-height: 50%;
 			z-index:777;
 		}
 
@@ -512,7 +512,7 @@ function changeTime(time){
 <div class="content">
 <div class="crosswow">
 	<div class="myLogoImg">
-		<img src="image/icon-192x192.png" width="80">
+		<img src="image/icon-192x192.png" width="80" height="80">
 	</div>
 	<img src="image/cross.d2bbc7f7.svg" class="crossImg" onclick="document.getElementById('exitBox').style.display = 'block';">
 </div>
