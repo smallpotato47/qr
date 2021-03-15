@@ -77,6 +77,11 @@
 		width:calc(100% - 40px);
 		margin:0 auto;
 	}
+	.historyNoLine{
+		padding:20px 0px;
+		width:calc(100% - 40px);
+		margin:0 auto;
+	}
 	.historyPlace{
 		color: #292c34;
 		font-size: 18px;
@@ -171,7 +176,7 @@ function preload(){
 	}else{		
 		for (var i = myObj.record.length - 1 ; i >= 0 ; i--){
 			if(i == 0){
-				historyTxt += "<div class='historyLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: min(40%,100px);'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
+				historyTxt += "<div class='historyNoLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime' style='padding-bottom: min(40%,100px);'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}else{
 				historyTxt += "<div class='historyLine'><div class='historyPlace'>" + myObj.record[i].place + "</div><div class='historyTime'>" + myObj.record[i].checkInTime + " - " + myObj.record[i].checkOutTime + "</div></div>" ;
 			}
