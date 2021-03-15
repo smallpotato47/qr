@@ -65,7 +65,7 @@
 		text-align:left;
 		color:#6c6c6c;
 		width:100%;
-		height:calc(100% - var(--footer-height) + 50px);
+		height:calc(100% - var(--footer-height) + 60px);
 		overflow-y:scroll;
 	}
 	.historyLine{
@@ -92,8 +92,10 @@
 	.footerMessage{
 		position: fixed;
 		bottom: 0px;
-		height: var(--footer-height);
-		//line-height: calc(var(--footer-height) - 50px);
+		//height: var(--footer-height);
+		
+		height:auto;
+		
 		background-color: #F0F0F0;
 		color:#282B34;
 		width: 100%;
@@ -101,6 +103,12 @@
 		font-family: myFirstFont, "Microsoft JhengHei" ;
 		font-size:16px;
 		font-weight:500;
+		
+		padding-top:10px;
+		display:flex;
+		flex-direction:column;
+		align-items: center;
+		
 	}
 	.lockerContainer{
 		width:100%;
@@ -110,15 +118,10 @@
 		position:relative;
 		margin:0;		
 	}
-	.container{
-		display:flex;
-		flex-direction:column;
-		align-items: center;
-		width:100%;
-		padding-top:10px;		
-	}
-	.container span{
+
+	.footerSpan{
 		width:90%;
+		padding-bottom:30px;
 	}
 	
 	:root {
@@ -200,12 +203,10 @@ function delStorage() {
 	<div id = "myRecord"></div>
 </div>
 <div class="footerMessage">
-	<div class="container">
-		<div class="lockerContainer">
-			<img src="image/lock.svg" class="mylocker">
-		</div>
-			<span>存放應用程式內的出行記錄在31天後會自動刪除<span onclick="delStorage()" >。</span></span>
+	<div class="lockerContainer">
+		<img src="image/lock.svg" class="mylocker">
 	</div>
+		<span class="footerSpan">存放應用程式內的出行記錄在31天後會自動刪除<span onclick="delStorage()" >。</span></span>
 </div>
 </body>
 </html>
