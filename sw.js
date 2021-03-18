@@ -1,1 +1,92 @@
-const _0x4a81=['image/icon-192x192.png','history.html','1oUpyLM','delete','base64.js','image/triangle.svg','image/cross.d2bbc7f7.svg','13YBqMGh','match','origin','install','skipWaiting','manifest.json','5bQtWJI','index.html','314117dqlOxh','image/greenTick.5e528318.svg','put','respondWith','then','image/lock.svg','clone','50514EQHhuf','13qwxPhm','3jYesrh','url','welcome.html','precache-v18-3','image/tick.6d45b966.svg','confirm.html','162385pAwyMX','image/back.7bf7a56f.svg','6181AoCPsM','request','image/checkbox.7f6c2da0.svg','image/favicon.ico','image/crossBlack.aafc0aee.svg','image/welcome.jpg','image/qrOverlay.185cc3ea.svg','108183zyRoub','7zoUtnf','waitUntil','open','map','runtime','keys','includes','addAll','font/Rubik-VariableFont_wght.ttf','addEventListener','filter','claim','activate','clients','cpyuL','scan.html','startsWith','25229sjdNXK','48315GeqZpu','location','JSpzs','instascan.js'];const _0x56fb=function(_0x3574c9,_0x536dc9){_0x3574c9=_0x3574c9-(-0x1492*0x1+-0xbdf*-0x1+-0x4ed*-0x2);let _0x4440a0=_0x4a81[_0x3574c9];return _0x4440a0;};const _0x42a50a=_0x56fb;(function(_0xc8c807,_0x326167){const _0x123e30=_0x56fb;while(!![]){try{const _0x17fd6e=parseInt(_0x123e30(0x157))*parseInt(_0x123e30(0x132))+parseInt(_0x123e30(0x146))*parseInt(_0x123e30(0x158))+-parseInt(_0x123e30(0x13f))+parseInt(_0x123e30(0x147))*parseInt(_0x123e30(0x150))+parseInt(_0x123e30(0x137))*parseInt(_0x123e30(0x12b))+-parseInt(_0x123e30(0x148))*parseInt(_0x123e30(0x14e))+parseInt(_0x123e30(0x12c))*parseInt(_0x123e30(0x13d));if(_0x17fd6e===_0x326167)break;else _0xc8c807['push'](_0xc8c807['shift']());}catch(_0x1040cd){_0xc8c807['push'](_0xc8c807['shift']());}}}(_0x4a81,-0x4*-0x203df+-0x4c5*-0x1c6+-0xbc84c));const PRECACHE=_0x42a50a(0x14b),RUNTIME=_0x42a50a(0x15c),PRECACHE_URLS=[_0x42a50a(0x13e),'./',_0x42a50a(0x14a),_0x42a50a(0x134),_0x42a50a(0x14d),_0x42a50a(0x160),_0x42a50a(0x131),_0x42a50a(0x14f),_0x42a50a(0x152),_0x42a50a(0x136),_0x42a50a(0x154),_0x42a50a(0x153),_0x42a50a(0x140),_0x42a50a(0x130),_0x42a50a(0x144),_0x42a50a(0x156),_0x42a50a(0x14c),_0x42a50a(0x135),_0x42a50a(0x155),_0x42a50a(0x12f),_0x42a50a(0x13c),_0x42a50a(0x129)];self[_0x42a50a(0x161)](_0x42a50a(0x13a),_0x51a753=>{const _0x5b4f47=_0x42a50a;_0x51a753[_0x5b4f47(0x159)](caches[_0x5b4f47(0x15a)](PRECACHE)[_0x5b4f47(0x143)](_0x10e47b=>_0x10e47b[_0x5b4f47(0x15f)](PRECACHE_URLS))[_0x5b4f47(0x143)](self[_0x5b4f47(0x13b)]()));}),self[_0x42a50a(0x161)](_0x42a50a(0x164),_0x4ccb98=>{const _0x1a7993=_0x42a50a,_0x4fb35f=[PRECACHE,RUNTIME];_0x4ccb98[_0x1a7993(0x159)](caches[_0x1a7993(0x15d)]()[_0x1a7993(0x143)](_0x4f63d5=>{const _0x6df88c=_0x1a7993;return _0x4f63d5[_0x6df88c(0x162)](_0xa42077=>!_0x4fb35f[_0x6df88c(0x15e)](_0xa42077));})[_0x1a7993(0x143)](_0x1db919=>{const _0x2650b7=_0x1a7993;return Promise['all'](_0x1db919[_0x2650b7(0x15b)](_0x4b9940=>{const _0x1d0b0b=_0x2650b7;return caches[_0x1d0b0b(0x133)](_0x4b9940);}));})[_0x1a7993(0x143)](()=>self[_0x1a7993(0x127)][_0x1a7993(0x163)]()));}),self[_0x42a50a(0x161)]('fetch',_0xcbc8a8=>{const _0x7dbd7a=_0x42a50a,_0x296345={};_0x296345[_0x7dbd7a(0x128)]=function(_0x27dd26,_0x57bf43){return _0x27dd26(_0x57bf43);};const _0x5f1a25=_0x296345;_0xcbc8a8[_0x7dbd7a(0x151)][_0x7dbd7a(0x149)][_0x7dbd7a(0x12a)](self[_0x7dbd7a(0x12d)][_0x7dbd7a(0x139)])&&_0xcbc8a8[_0x7dbd7a(0x142)](caches[_0x7dbd7a(0x138)](_0xcbc8a8[_0x7dbd7a(0x151)])[_0x7dbd7a(0x143)](_0x383a0f=>{const _0x3e1295=_0x7dbd7a,_0x28f402={};_0x28f402[_0x3e1295(0x12e)]=function(_0x3ccbd9,_0x1550b8){const _0x40d518=_0x3e1295;return _0x5f1a25[_0x40d518(0x128)](_0x3ccbd9,_0x1550b8);};const _0x3f47d5=_0x28f402;if(_0x383a0f)return _0x383a0f;return caches['open'](RUNTIME)[_0x3e1295(0x143)](_0x4fd5bc=>{const _0x5294fb=_0x3e1295;return _0x3f47d5[_0x5294fb(0x12e)](fetch,_0xcbc8a8[_0x5294fb(0x151)])[_0x5294fb(0x143)](_0x4a2fe5=>{const _0x1a1d6e=_0x5294fb;return _0x4fd5bc[_0x1a1d6e(0x141)](_0xcbc8a8[_0x1a1d6e(0x151)],_0x4a2fe5[_0x1a1d6e(0x145)]())[_0x1a1d6e(0x143)](()=>{return _0x4a2fe5;});});});}));});
+/*
+ Copyright 2016 Google Inc. All Rights Reserved.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+// Names of the two caches used in this version of the service worker.
+// Change to v2, etc. when you update any of the local resources, which will
+// in turn trigger the install event again.
+const PRECACHE = 'precache-v18-3.1';
+const RUNTIME = 'runtime';
+
+// A list of local resources we always want to be cached.
+const PRECACHE_URLS = [
+ 'index.html',
+ './', // Alias for index.html
+ 'welcome.html',
+ 'base64.js',
+ 'confirm.html',
+ 'font/Rubik-VariableFont_wght.ttf',
+ 'history.html',
+ 'image/back.7bf7a56f.svg',
+ 'image/checkbox.7f6c2da0.svg',
+ 'image/cross.d2bbc7f7.svg',
+ 'image/crossBlack.aafc0aee.svg',
+ 'image/favicon.ico',
+ 'image/greenTick.5e528318.svg',
+ 'image/icon-192x192.png',
+ 'image/lock.svg',
+ 'image/qrOverlay.185cc3ea.svg',
+ 'image/tick.6d45b966.svg',
+ 'image/triangle.svg',
+ 'image/welcome.jpg',
+ 'instascan.js',
+ 'manifest.json',
+ 'scan.html' 
+];
+
+// The install handler takes care of precaching the resources we always need.
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(self.skipWaiting())
+  );
+});
+
+// The activate handler takes care of cleaning up old caches.
+self.addEventListener('activate', event => {
+  const currentCaches = [PRECACHE, RUNTIME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+    }).then(cachesToDelete => {
+      return Promise.all(cachesToDelete.map(cacheToDelete => {
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(() => self.clients.claim())
+  );
+});
+
+// The fetch handler serves responses for same-origin resources from a cache.
+// If no response is found, it populates the runtime cache with the response
+// from the network before returning it to the page.
+self.addEventListener('fetch', event => {
+  // Skip cross-origin requests, like those for Google Analytics.
+  if (event.request.url.startsWith(self.location.origin)) {
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            // Put a copy of the response in the runtime cache.
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
+      })
+    );
+  }
+});
